@@ -7,16 +7,24 @@
 
 <!-- versionCode is optional and Android only -->
 
-  <name>RG creative lab</name>
+  <name>W3earth</name>
 
   <description>
-      an mini app for existing site.
+      RG CREATIVE LAB website app version
   </description>
   
-  <platform name="android" />
+  <platform name="android">
+    <preference name="SplashScreen" value="splash" />
+	<splash src="./splash.png" />
+  </platform>
+  
+  
+  <plugin name="cordova-plugin-splashscreen" source="npm" />
+  <plugin name="cordova-sms-plugin" source="npm" />
+
   <icon src="icon.png" />
   <author href="https://build.phonegap.com" email="support@phonegap.com">
       Rajib Ganguly
   </author>
-
+	<preference name='phonegap-version' value='cli-6.5.0' />
 </widget>

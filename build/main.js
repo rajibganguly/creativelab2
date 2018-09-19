@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,11 +13,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 108;
+webpackEmptyAsyncContext.id = 109;
 
 /***/ }),
 
-/***/ 149:
+/***/ 150:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -30,7 +30,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 149;
+webpackEmptyAsyncContext.id = 150;
 
 /***/ }),
 
@@ -42,7 +42,7 @@ webpackEmptyAsyncContext.id = 149;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(197);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -116,6 +116,7 @@ var AboutPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_sms__ = __webpack_require__(196);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -127,15 +128,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ContactPage = /** @class */ (function () {
-    function ContactPage(navCtrl) {
+    function ContactPage(navCtrl, sms) {
         this.navCtrl = navCtrl;
+        this.sms = sms;
     }
+    ContactPage.prototype.senSMS = function (x, y) {
+        var options;
+        this.objValue = {
+            email: x.value,
+            message: y.value
+        };
+        console.log(this.objValue);
+		var str = "Message received from - " + x.value + " & message is - " + y.value;
+        this.sms.send('919875570749', str, options);
+    };
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact',template:/*ion-inline-start:"D:\test\project\rg\angular2\mobile-rgcreativelab\myApp\src\pages\contact\contact.html"*/'<ion-header>\n  <ion-navbar><ion-title>Contact</ion-title></ion-navbar>\n</ion-header>\n<ion-content class="customlist">\n    <ion-card>\n        <img src="./assets/imgs/contact.jpg" alt="Rgcreativelab" />\n        <ion-card-content>\n          <ion-card-title class="heading">EMAIL ME</ion-card-title>\n          <p text-center>w3earth@outlook.com</p>\n          </ion-card-content>\n      </ion-card>\n\n    <ion-list>\n      <ion-list-header>WEBSITE</ion-list-header>\n        <ion-item>https://rgcreativelab.com/</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>OLD MANS WALL</ion-list-header>\n          <ion-item>https://www.coroflot.com/w3earth</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>DESIGNER CHOICE</ion-list-header>\n          <ion-item>https://www.behance.net/gallery/51320227/Dashboard-page</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>PROFESSIONAL DESTINATION</ion-list-header>\n          <ion-item>https://www.linkedin.com/in/rajib-ganguly-0a3031a/</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>SOCIAL MEDIA</ion-list-header>\n          <ion-item>https://www.facebook.com/Designer.RajibGanguly</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>MY BLOG</ion-list-header>\n          <ion-item>https://w3earth.wordpress.com/</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>FOUNDER</ion-list-header>\n          <ion-item>https://www.linkedin.com/company/w3earth/</ion-item>\n    </ion-list>   \n</ion-content>\n'/*ion-inline-end:"D:\test\project\rg\angular2\mobile-rgcreativelab\myApp\src\pages\contact\contact.html"*/
+            selector: 'page-contact',template:/*ion-inline-start:"D:\test\project\rg\angular2\mobile-rgcreativelab\myApp\src\pages\contact\contact.html"*/'<ion-header>\n  <ion-navbar><ion-title>Contact</ion-title></ion-navbar>\n</ion-header>\n<ion-content class="customlist">\n    <ion-card>\n        <img src="./assets/imgs/contact.jpg" alt="Rgcreativelab" />\n        <ion-card-content padding>\n              <ion-list>\n\n                <ion-item>\n                  <ion-input type="email" name="email" ngModel #email="ngModel" placeholder="Enter your email" required></ion-input>\n                </ion-item>\n              \n                <ion-item>\n                  <ion-textarea name="message" ngModel #message="ngModel" placeholder="Enter your message" required></ion-textarea>\n                </ion-item>\n              \n              </ion-list>\n              \n              <div padding>\n                <button block color="primary" (click)="senSMS(email, message)" ion-button>Send SMS for help!</button>\n              </div>\n          </ion-card-content>\n      </ion-card>\n\n    <ion-list>\n      <ion-list-header>WEBSITE</ion-list-header>\n        <ion-item>https://rgcreativelab.com/</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>OLD MANS WALL</ion-list-header>\n          <ion-item>https://www.coroflot.com/w3earth</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>DESIGNER CHOICE</ion-list-header>\n          <ion-item>https://www.behance.net/gallery/51320227/Dashboard-page</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>PROFESSIONAL DESTINATION</ion-list-header>\n          <ion-item>https://www.linkedin.com/in/rajib-ganguly-0a3031a/</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>SOCIAL MEDIA</ion-list-header>\n          <ion-item>https://www.facebook.com/Designer.RajibGanguly</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>MY BLOG</ion-list-header>\n          <ion-item>https://w3earth.wordpress.com/</ion-item>\n    </ion-list>\n    <ion-list>\n        <ion-list-header>FOUNDER</ion-list-header>\n          <ion-item>https://www.linkedin.com/company/w3earth/</ion-item>\n    </ion-list>   \n</ion-content>\n'/*ion-inline-end:"D:\test\project\rg\angular2\mobile-rgcreativelab\myApp\src\pages\contact\contact.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_sms__["a" /* SMS */]])
     ], ContactPage);
     return ContactPage;
 }());
@@ -144,7 +157,7 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 196:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -179,13 +192,13 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 197:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(221);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -193,7 +206,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 220:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -201,19 +214,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_sms__ = __webpack_require__(196);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -253,6 +268,7 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_sms__["a" /* SMS */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
             ]
         })
@@ -264,14 +280,14 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 263:
+/***/ 264:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -310,5 +326,5 @@ var MyApp = /** @class */ (function () {
 
 /***/ })
 
-},[197]);
+},[198]);
 //# sourceMappingURL=main.js.map
